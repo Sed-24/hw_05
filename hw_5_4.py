@@ -6,7 +6,9 @@ def input_error(func):
         except ValueError:
             return "Give me name and phone please."
         except IndexError:
-            return "The argument for the command"
+            return "Give me name and phone please."
+        except KeyError:
+            return "Specify the correct search parameter"
     return inner
 
 
@@ -61,7 +63,6 @@ def change_contact(*change):
         return "Contact not found"
 
 
-@input_error
 def show_phone(*phone):
     if phone[0] in contact:
         return contact[phone[0]]
